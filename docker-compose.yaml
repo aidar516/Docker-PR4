@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  api:
+    build: ./api
+    restart: always
+    container_name: api_backend
+    ports: 
+      - 5555:5000
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - 8954:8954
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=time_db
+    
